@@ -1,0 +1,22 @@
+{
+  "Id": "0000FBB0-D511-4151-A468-06F215620C31",
+  "Type": "MCQ",
+  "Name": null,
+  "Instruction": "<p style=\"text-align:justify;font-size:15px;\">Which of these rivers is the longest?</p>",
+  "Answers": [
+    { "Value": "<p>Amazon River</p>", "IsCorrect": false, "ChoiceId": 0 },
+    { "Value": "<p>Danube River</p>", "IsCorrect": true, "ChoiceId": 1 },
+    { "Value": "<p>Nile River</p>", "IsCorrect": false, "ChoiceId": 2 },
+    { "Value": "<p>Hudson River</p>", "IsCorrect": false, "ChoiceId": 3 }
+  ],
+  "Scoring": { "MaxScore": 10.0, "MinScore": 0.0 },
+  "Metadata": {
+    "Language": "eng",
+    "Subject": null,
+    "Sector": "Secondary Education",
+    "Difficulty": null,
+    "CustomerId": null,
+    "Custom": [],
+    "Location": "Content 2021 > ENG > Geography"
+  }
+}
