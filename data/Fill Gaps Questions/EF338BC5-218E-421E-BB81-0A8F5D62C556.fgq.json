@@ -1,0 +1,31 @@
+{
+  "Id": "EF338BC5-218E-421E-BB81-0A8F5D62C556",
+  "Type": "FGQ",
+  "Name": "Template invullen",
+  "Instruction": "<p><span style=\"font-size:12px;color:#2e2e2e;\"><span style=\"font-size:14px;\">Typ het antwoord in het lege vak.</span></span></p><p><strong><span style=\"font-size: 18px;\">Een bloemenperk heeft de vorm van een cirkel met straal&nbsp;</span></strong><strong><span style=\"font-size: 18px;\">5 m. &nbsp;</span></strong></p><p><strong><span style=\"font-size: 18px;\">De tuinaannemer wil het bloemenperk afboorden met een sierklinker.&nbsp;</span></strong></p><p><strong><span style=\"font-size: 18px;\">Hoeveel meter moet hij hiervoor voorzien?</span></strong></p><p><span style=\"font-size:12px;color:#2e2e2e;\"><span style=\"font-size:18px;\"><strong>Geef je antwoord op 1 m nauwkeurig.</strong></span></span></p>",
+  "Text": "<p><br>De tuinaannemer voorziet  [[0]]  sierklinkers.</p>",
+  "Answers": [
+    { "GapId": 0, "Text": "31 m", "IsCorrect": true, "Hint": null },
+    { "GapId": 0, "Text": "32 m", "IsCorrect": false, "Hint": null }
+  ],
+  "Scoring": { "MaxScore": 1.0, "MinScore": 0.0 },
+  "Metadata": {
+    "Language": "nld",
+    "Subject": null,
+    "Sector": "Secondary Education",
+    "Difficulty": null,
+    "CustomerId": null,
+    "Custom": [
+      { "Key": "Wiskunde", "Value": "ET" },
+      { "Key": "Vraagsoort", "Value": "Andere gesloten vraag" },
+      { "Key": "Beheersingsniveau", "Value": "3 - Toepassen" },
+      { "Key": "Moeilijkheidsgraad", "Value": "2 Gemiddeld" },
+      {
+        "Key": "Bron correctie op moeilijkheidsgraad",
+        "Value": "Opsteller"
+      },
+      { "Key": "Media", "Value": "Niets" }
+    ],
+    "Location": "Wiskunde > Metend rekenen > Omtrek van vlakke figuren > cirkel"
+  }
+}
