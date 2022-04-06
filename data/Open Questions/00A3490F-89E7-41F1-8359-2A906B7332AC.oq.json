@@ -1,0 +1,18 @@
+{
+  "Id": "00A3490F-89E7-41F1-8359-2A906B7332AC",
+  "Type": "OQ",
+  "Name": "null",
+  "Instruction": "<p><strong>Where is the Atomium situated, why was it build and who was it's designer?</strong></p>",
+  "ModelAnswer": "The Atomium is situated in Brussels. It was build for the 1958 world's fair and designed by André Waterkeyn.",
+  "keywords": ["Brussels", "1958 World's Fair", "André Waterkeyn"],
+  "Scoring": { "MaxScore": 1.0, "MinScore": 0.0 },
+  "Metadata": {
+    "Language": "eng",
+    "Subject": null,
+    "Sector": "Secondary Education",
+    "Difficulty": null,
+    "CustomerId": null,
+    "Custom": [],
+    "Location": "Example question > World's fair > Atomium"
+  }
+}
