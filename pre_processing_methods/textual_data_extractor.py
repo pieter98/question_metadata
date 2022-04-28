@@ -40,18 +40,12 @@ def extract_textual_data(dir_path):
             with open(file_path,"w") as file:
                 json.dump(json_file, file)
 
+
+'''
 # Example usage
 path = os.path.join(os.getcwd(), "Questions")
 dirs = os.listdir(path)
 for dir in dirs:
     dir_path = os.path.join(path, dir)
     extract_textual_data(dir_path)
-   
-
-
-
-
-            
-
-
-
+'''    

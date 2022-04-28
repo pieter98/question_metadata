@@ -127,14 +127,15 @@ def extract_language(dir_path, debug = False):
                 with open(file_path,"w") as file:
                     json.dump(json_file, file)
 
-
+'''
 # Example usage
 path = os.path.join(os.getcwd(), "Questions")
 dir_path = os.path.join(path, "Fill Gaps Questions")
 extract_language(dir_path)
 # dirs = os.listdir(path)
 
-'''
+
 for dir in dirs[1:]:
     dir_path = os.path.join(path, dir)
-    extract(dir_path)'''
+    extract(dir_path)
+'''
