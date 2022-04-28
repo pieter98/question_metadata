@@ -59,9 +59,11 @@ def separate_data_helper(dir_path, dest_path):
                 if not os.path.isdir(file_path):
                     lang_name = "default"
                     with open(file_path) as file:
-                        if file:
+                        try:
                             json_file = json.load(file)
-                            lang_name = json_file["Metadata"]["Language"]            
+                            lang_name = json_file["Metadata"]["Language"]        
+                        except:
+                            lang_name = "default"
 
 
                     dest_folder_path = os.path.join(dest_path, lang_name)
