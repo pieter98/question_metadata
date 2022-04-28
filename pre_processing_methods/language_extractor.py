@@ -19,15 +19,43 @@ from bs4 import BeautifulSoup
 
 ft_model = ft.load_model("./fasttext_pretrained/lid.176.bin")
 
+'''
+===================================================================================================================
+METHOD: (get_lang_detector)
+helper method for initiating spacy langdetect
+===================================================================================================================
+'''
 def get_lang_detector(nlp, name):
     return LanguageDetector()
 
+
+'''
+===================================================================================================================
+METHOD: (fasttext_language_predict)
+helper method for fasttext language predictions
+
+PARAMS:
+text:   the text for which to predict the language
+model:  the fasttext model that needs to be used
+===================================================================================================================
+'''
 def fasttext_language_predict(text, model = ft_model):
     text = text.replace('\n', ' ')
     prediction = model.predict([text])
     return prediction
 
-def extract(dir_path, debug = False):
+'''
+===================================================================================================================
+METHOD: (extract_language)
+as the name suggests this method derrives the language from the textual data in the assessmentQ question
+
+PARAMS:
+dir_path:   path to directory containing the questions you want to process
+debug:      indicates if debug logging is needed
+===================================================================================================================
+'''
+
+def extract_language(dir_path, debug = False):
 
     spacy_detector = spacy.load('en_core_web_sm')
     Language.factory("language_detector", func=get_lang_detector)
@@ -102,7 +130,11 @@ def extract(dir_path, debug = False):
 
 # Example usage
 path = os.path.join(os.getcwd(), "Questions")
-dirs = os.listdir(path)
-for dir in dirs:
+dir_path = os.path.join(path, "Fill Gaps Questions")
+extract_language(dir_path)
+# dirs = os.listdir(path)
+
+'''
+for dir in dirs[1:]:
     dir_path = os.path.join(path, dir)
-    extract(dir_path)
+    extract(dir_path)'''
