@@ -25,6 +25,8 @@ METHOD: (get_lang_detector)
 helper method for initiating spacy langdetect
 ===================================================================================================================
 '''
+
+
 def get_lang_detector(nlp, name):
     return LanguageDetector()
 
@@ -39,10 +41,13 @@ text:   the text for which to predict the language
 model:  the fasttext model that needs to be used
 ===================================================================================================================
 '''
-def fasttext_language_predict(text, model = ft_model):
+
+
+def fasttext_language_predict(text, model=ft_model):
     text = text.replace('\n', ' ')
     prediction = model.predict([text])
     return prediction
+
 
 '''
 ===================================================================================================================
@@ -55,14 +60,14 @@ debug:      indicates if debug logging is needed
 ===================================================================================================================
 '''
 
-def extract_language(dir_path, debug = False):
+
+def extract_language(dir_path, debug=False):
 
     spacy_detector = spacy.load('en_core_web_sm')
     Language.factory("language_detector", func=get_lang_detector)
     spacy_detector.add_pipe('language_detector', last=True)
 
     google_translator = Translator()
-
 
     if os.path.isdir(dir_path):
 
@@ -71,24 +76,27 @@ def extract_language(dir_path, debug = False):
             file_path = os.path.join(dir_path, file_name)
             file = open(file_path)
             json_file = json.load(file)
-            
+
             voting_dict = {}
-            
+
             if debug:
                 print(json_file["Textual_data"])
-            
+
             if json_file["Textual_data"] != "":
                 try:
                     pred1 = detect(json_file["Textual_data"])
                 except:
                     pred1 = ""
-                pred2 = spacy_detector(json_file["Textual_data"])._.language['language']
+                pred2 = spacy_detector(
+                    json_file["Textual_data"])._.language['language']
                 # Errors can occur in the goole_Translator detect, catch these errors
                 try:
-                    pred3 = google_translator.detect(json_file["Textual_data"]).lang
+                    pred3 = google_translator.detect(
+                        json_file["Textual_data"]).lang
                 except:
                     pred3 = ""
-                pred4 = fasttext_language_predict(json_file["Textual_data"])[0][0][0].replace("__label__", "")
+                pred4 = fasttext_language_predict(json_file["Textual_data"])[
+                    0][0][0].replace("__label__", "")
 
                 if pred1 != "":
                     voting_dict[pred1] = 1
@@ -97,14 +105,14 @@ def extract_language(dir_path, debug = False):
                     voting_dict[pred2] += 1
                 else:
                     voting_dict[pred2] = 1
-                    
+
                 if pred3 in voting_dict.keys() and pred3 != "":
                     if pred3 == 'nl':
                         voting_dict[pred3] += 2
                     else:
                         voting_dict[pred3] += 1
                 else:
-                    # google_translator gets a higher weighted vote for dutch ("nl") 
+                    # google_translator gets a higher weighted vote for dutch ("nl")
                     if pred3 == 'nl':
                         voting_dict[pred3] = 2
                     else:
@@ -114,18 +122,20 @@ def extract_language(dir_path, debug = False):
                     voting_dict[pred4] += 1
                 else:
                     voting_dict[pred4] = 1
-                    
+
                 # json_file["Metadata"]["Language"] = max(voting_dict, key=voting_dict.get)
                 if(debug):
                     print(json_file["Metadata"]["Language"])
                     print(voting_dict)
                     print(pred1 + " " + pred2 + " " + pred3 + " " + pred4)
                     print(max(voting_dict, key=voting_dict.get))
-                
-                json_file["Metadata"]["Language"] = max(voting_dict, key=voting_dict.get)
 
-                with open(file_path,"w") as file:
+                json_file["Metadata"]["Language"] = max(
+                    voting_dict, key=voting_dict.get)
+
+                with open(file_path, "w") as file:
                     json.dump(json_file, file)
+
 
 '''
 # Example usage
