@@ -1,5 +1,7 @@
 # Automatically adding metadata to a question
 
-useful links:
-- [https://github.com/iPieter/robbert](https://github.com/iPieter/robbert)
-- [huggingface pipelines](https://huggingface.co/docs/transformers/v4.17.0/en/main_classes/pipelines#transformers.pipeline)
+## structure
+- data folder: contains all data used in the notebooks
+- QM01_preprocessing.ipynb: notebook that contains all code for the preprocessing of the raw question data
+- QM02_zero_shot_approach.ipynb: notebook that contains all code for the zero-shot classification approach for labeling questions
+- QM03_few_shot_approach.ipynb: notebook that contains all code for the few-shot learning approach for labeling questions
