@@ -1,4 +1,4 @@
-![alt text](images/MetadataQ-3.JPG)
+![alt text](images/MetdataQ-3.JPG)
 # Automatically adding metadata to a question
 The goal of this project is adding meaningful metadat to the assessmentQ data based purely on the textual data of these questions.
 
